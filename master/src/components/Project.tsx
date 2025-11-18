@@ -11,7 +11,7 @@ function Project() {
             <div className="project">
                 <a href="https://trading-analysis-ai.onrender.com/" target="_blank" rel="noreferrer"><img src={TradingAI} className="zoom" alt="thumbnail" width="100%"/></a>
                 <a href="https://trading-analysis-ai.onrender.com/" target="_blank" rel="noreferrer"><h2>Trading AI</h2></a>
-                <p></p>
+                <p>Developed Stock Price Analysis Dashboard powered by AI powered search and analysis of public news feeds.</p>
             </div>
             <div className="project">
                 <a href={MarbleGame} target="_blank" rel="noreferrer"><img src={MarbleGame} className="zoom" alt="Marble Game thumbnail" width="100%"/></a>
