@@ -14,8 +14,8 @@ function Project() {
                 <p>Developed a financial intelligence dashboard using Python and its frameworks for stock price analysis and visualization. The application integrates an AI-powered search and natural language processing (NLP) to analyze and summarize public news feeds for actionable market insights.</p>
             </div>
             <div className="project">
-                <a href={MarbleGame} target="_blank" rel="noreferrer"><img src={MarbleGame} className="zoom" alt="Marble Game thumbnail" width="100%"/></a>
-                <a href="projectpresentation(1).html" target="_blank" rel="noreferrer"><h2>Marble Game</h2></a>
+                <img src={MarbleGame} className="zoom" alt="Marble Game thumbnail" width="100%"/>
+                <h2>Marble Game</h2>
                 <p>Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight. The project utilizes HLSL shaders and procedural animations for distinct visual and gameplay enhancements.</p>
             </div>
             
