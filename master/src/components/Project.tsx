@@ -16,7 +16,7 @@ function Project() {
             <div className="project">
                 <img src={MarbleGame} className="zoom" alt="Marble Game thumbnail" width="100%"/>
                 <h2>Marble Game</h2>
-                <p>Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight. The project utilizes HLSL shaders and procedural animations for distinct visual and gameplay enhancements.</p>
+                <p>Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight. Engineered complex graphics, AI, and system features, including a predictive AI using negative delta algorithms, custom HLSL shaders for vertex extrusion rendering, and an efficient procedural generation system with queue-based memory management.</p>
             </div>
             
         </div>
