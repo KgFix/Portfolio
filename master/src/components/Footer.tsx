@@ -21,7 +21,7 @@ function Footer() {
         </div>
         <div className="social-links">
           <a href="https://github.com/KgFix" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+          <a href="https://linkedin.com/in/kironegopaul" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
         </div>
       </div>
       </footer>
