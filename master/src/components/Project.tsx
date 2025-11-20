@@ -10,8 +10,8 @@ function Project() {
         <div className="projects-grid">
             <div className="project">
                 <a href="https://trading-analysis-ai.onrender.com/" target="_blank" rel="noreferrer"><img src={TradingAI} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://trading-analysis-ai.onrender.com/" target="_blank" rel="noreferrer"><h2>AI Stock Price Predictor</h2></a>
-                <p>Developed a financial intelligence dashboard using Python and its frameworks for stock price analysis and visualization. The application integrates an AI-powered search and natural language processing (NLP) to analyze and summarize public news feeds for actionable market insights.</p>
+                <a href="https://trading-analysis-ai.onrender.com/" target="_blank" rel="noreferrer"><h2>AI Financial Intelligence Platform</h2></a>
+                <p>Engineered a full-stack financial analysis platform using Plotly Dash and Flask for predicting future stock prices and providing weighted investment suggestions. The system is powered by an optimized, cache-first, agent-based backend integrating web search and a multi-LLM system, which reduced external API data latency by over 70%. This resilient multi-LLM architecture delivers real-time news summarization, sentiment analysis, and probabilistic stock price forecasts. Deployment is streamlined via an automated, production-ready CI/CD pipeline utilizing Docker, Ruff, and Mypy to ensure code quality and type safety.</p>
             </div>
             <div className="project">
                 <img src={MarbleGame} className="zoom" alt="Marble Game thumbnail" width="100%"/>
