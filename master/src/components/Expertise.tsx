@@ -7,37 +7,37 @@ import '../assets/styles/Expertise.scss';
 
 const developmentSkills = [
     "Python",
+    "C++",
     "C#",
     "Java",
-    "C++",
+    "Delphi",
+    "TypeScript",
     "SQL",
-    "JavaScript",
-    "HTML/CSS",
-    "Flask",
-    "Plotly Dash",
     "React",
     "Node.js",
+    "FastAPI",
+    "Flask",
+    "Pandas",
 ];
 
 const devOpsSkills = [
-    "Git",
+    "AWS (EC2, DynamoDB)",
+    "Oracle Cloud",
     "Docker",
-    "CI/CD",
+    "CI/CD (GitHub Actions)",
+    "Git",
     "Ruff",
     "Mypy",
-    "VS Code",
-    "Visual Studio",
-    "IntelliJ",
-    "Eclipse"
 ];
 
 const gameDevSkills = [
     "Unity",
+    "C++",
     "C#",
+    "SFML",
     "HLSL/GLSL",
     "Blender",
     "LLM APIs",
-    "Pandas",
 ];
 
 function Expertise() {
@@ -49,7 +49,7 @@ function Expertise() {
                 <div className="skill">
                     <FontAwesomeIcon icon={faLaptopCode} size="3x"/>
                     <h3>Full Stack Development</h3>
-                    <p>Building complete web applications from start to finish (SDLC). Solutions are functionalized by bridging the frontend (React) and the backend (Python/Flask) logic, including relational database management.</p>
+                    <p>Strong engineering foundation in architecting scalable, high-performance solutions across the full Software Development Lifecycle. Experience building production-ready applications with React frontends and Python backends (FastAPI/Flask), including cloud-native deployments on AWS and Oracle Cloud.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {developmentSkills.map((label, index) => (
@@ -60,8 +60,8 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faTools} size="3x"/>
-                    <h3>DevOps & Automation</h3>
-                    <p>Focus on reliability, quality assurance, and efficient deployment. Implementation of production-ready CI/CD pipelines using Docker streamlines operations. Code integrity is enforced through static analysis and automated tools like Ruff and Mypy.</p>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Practical experience with cloud technologies including AWS (EC2, DynamoDB) and Oracle Cloud Infrastructure. Expertise in implementing CI/CD pipelines with Docker and GitHub Actions for reliable, automated deployments. Code quality is ensured through static analysis tools including Ruff and Mypy.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {devOpsSkills.map((label, index) => (
@@ -72,8 +72,8 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faGears} size="3x"/>
-                    <h3>Algorithm Engineering</h3>
-                    <p>Deep expertise in designing and implementing efficient, complex systems. This capability includes developing predictive AI using specialized algorithms in C#, engineering systems for procedural generation, and integrating LLM APIs for data summarization and analysis.</p>
+                    <h3>Systems & Game Engineering</h3>
+                    <p>Deep expertise in designing efficient, complex systems with a focus on performance optimization. Experience includes developing high-performance game engines in C++ with SFML, implementing predictive AI algorithms, procedural generation systems, and building multi-LLM agent pipelines for real-time data analysis.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {gameDevSkills.map((label, index) => (
