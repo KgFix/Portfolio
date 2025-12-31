@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import '../assets/styles/Project.scss';
 
 // Import images for TradingAI project
-import TradingAI1 from '../assets/images/TradingAI/TradingAI.png';
+import TradingAI1 from '../assets/images/TradingAI/1.png';
+import TradingAI2 from '../assets/images/TradingAI/2.png';
+import TradingAI3 from '../assets/images/TradingAI/3.png';
+import TradingAI4 from '../assets/images/TradingAI/4.png';
+import TradingAI5 from '../assets/images/TradingAI/5.png';
 
 // Import images for MarbleGame project
 import MarbleGame1 from '../assets/images/MarbleGame/MarbleGame.png';
@@ -26,7 +30,7 @@ const projectsData: ProjectData[] = [
     {
         title: "Agentic Stock Intelligence Platform",
         description: "Engineered a full-stack financial analysis platform using Plotly Dash and Flask for predicting future stock prices and providing weighted investment suggestions. The system is powered by an optimized, cache-first, agent-based backend integrating web search and a multi-LLM system, which reduced external API data latency by over 70%. This resilient multi-LLM architecture delivers real-time news summarization, sentiment analysis, and probabilistic stock price forecasts. Deployment is streamlined via an automated, production-ready CI/CD pipeline utilizing Docker, Ruff, and Mypy to ensure code quality and type safety.",
-        images: [TradingAI1],
+        images: [TradingAI1, TradingAI2, TradingAI3, TradingAI4, TradingAI5],
         link: "https://trading-analysis-ai.onrender.com/"
     },
     {
