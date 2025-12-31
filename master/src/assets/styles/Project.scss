@@ -19,6 +19,13 @@
     text-decoration: underline;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
+
+.image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
   
 .zoom {
     border-radius: 5px;
@@ -27,10 +34,56 @@
     width: 100%;
     height: 300px;
     object-fit: fill;
+    display: block;
 }
   
 .zoom:hover {
     transform: scale(1.05);
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    line-height: 1;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.image-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    z-index: 10;
 }
 
 @media screen {
