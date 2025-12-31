@@ -18,7 +18,7 @@ function Main() {
             <a href="https://linkedin.com/in/kironegopaul" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
           <h1>Kirone Gopaul</h1>
-          <p>Software Developer</p>
+          <p>Software Engineer | Computer Science Graduate @ UKZN</p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/KgFix" target="_blank" rel="noreferrer"><GitHubIcon/></a>

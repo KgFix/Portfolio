@@ -16,26 +16,29 @@ function Timeline() {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="2023 - present"
+            date="Jan 2023 - Nov 2025"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             <h3 className="vertical-timeline-element-title">BSc Computer Science</h3>
-            <h4 className="vertical-timeline-element-subtitle">Durban, South Africa</h4>
+            <h4 className="vertical-timeline-element-subtitle">University of KwaZulu-Natal</h4>
             <p>
-              Dean's Commendation, Databases/Programming, Data Structures, OOP, Advanced Programming.
+              Awarded Dean's Commendation and achieved high proficiency in core engineering disciplines, including Artificial Intelligence, Databases and Programming, Data Structures, and Advanced Programming.
+            </p>
+            <p>
+              Strong mathematical foundation for algorithmic development, covering Discrete Mathematics with Applications, Advanced Calculus & Linear Algebra, and Theory of Computation.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2024 - present"
+            date="Feb 2024 - Nov 2025"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Private Tutor - Mathematics & IT</h3>
-            <h4 className="vertical-timeline-element-subtitle">Durban, South Africa</h4>
+            <h3 className="vertical-timeline-element-title">Private Tutor - Mathematics & Information Technology</h3>
+            <h4 className="vertical-timeline-element-subtitle">KG TUITIONS</h4>
             <p>
-              Client acquisition, scheduling, billing, strong organizational and time-management skills.
+              Simplified complex mathematical and programming concepts for high school students, improving their average grades by 17%.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
@@ -45,21 +48,24 @@ function Timeline() {
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
             <h3 className="vertical-timeline-element-title">Seasonal Employee</h3>
-            <h4 className="vertical-timeline-element-subtitle">Durban, South Africa</h4>
+            <h4 className="vertical-timeline-element-subtitle">CLICKS GROUP</h4>
             <p>
-              Managed critical inventory, executed POS transactions, ensured 99%+ transaction accuracy.
+              Maintained high operational efficiency in a high-volume retail environment; achieved 99% transaction accuracy and resolved customer queries under pressure.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2018 - 2022"
+            date="Jan 2018 - Dec 2022"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
-            <h3 className="vertical-timeline-element-title">Bachelor's Degree Pass (High School)</h3>
-            <h4 className="vertical-timeline-element-subtitle">Durban, South Africa</h4>
+            <h3 className="vertical-timeline-element-title">Bachelor's Degree Pass</h3>
+            <h4 className="vertical-timeline-element-subtitle">Greenbury Secondary</h4>
             <p>
-              Excelled in IT (92%) and Mathematics (89%), Awarded bursary for Advanced Mathematics.
+              Excelled in Information Technology (92%) and Mathematics (89%).
+            </p>
+            <p>
+              Awarded the New West Bursary for Advanced Mathematics and Robotics.
             </p>
           </VerticalTimelineElement>
         </VerticalTimeline>
