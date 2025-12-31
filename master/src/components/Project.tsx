@@ -9,9 +9,14 @@ import TradingAI4 from '../assets/images/TradingAI/4.png';
 import TradingAI5 from '../assets/images/TradingAI/5.png';
 
 // Import images for MarbleGame project
-import MarbleGame1 from '../assets/images/MarbleGame/MarbleGame.png';
-import MarbleGame2 from '../assets/images/MarbleGame/MarbleGame.gif';
-import MarbleGame3 from '../assets/images/MarbleGame/MarbleGamePlain.png';
+import MarbleGame1 from '../assets/images/MarbleGame/as.png';
+import MarbleGame2 from '../assets/images/MarbleGame/asd.png';
+import MarbleGame3 from '../assets/images/MarbleGame/dasasd.png';
+import MarbleGame4 from '../assets/images/MarbleGame/dasd.png';
+import MarbleGame5 from '../assets/images/MarbleGame/dasdasd.png';
+import MarbleGame6 from '../assets/images/MarbleGame/dsa.png';
+import MarbleGame7 from '../assets/images/MarbleGame/fas.png';
+import MarbleGame8 from '../assets/images/MarbleGame/MarbleGame.gif';
 
 // Import images for VisualNovelEngine project
 import VisualNovel1 from '../assets/images/VisualNovelEngine/MainMenu.jpg';
@@ -36,7 +41,7 @@ const projectsData: ProjectData[] = [
     {
         title: "Marble Game",
         description: "Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight. Engineered complex graphics, AI, and system features, including a predictive AI using negative delta algorithms, custom HLSL shaders for vertex extrusion rendering, and an efficient procedural generation system with queue-based memory management.",
-        images: [MarbleGame1, MarbleGame2, MarbleGame3]
+        images: [MarbleGame1, MarbleGame2, MarbleGame3, MarbleGame4, MarbleGame5, MarbleGame6, MarbleGame7, MarbleGame8]
     },
     {
         title: "Visual Novel Game Engine",
@@ -47,21 +52,39 @@ const projectsData: ProjectData[] = [
 
 function ProjectCard({ project }: { project: ProjectData }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const nextImage = () => {
+    const nextImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
         setCurrentImageIndex((prevIndex) => 
             (prevIndex + 1) % project.images.length
         );
     };
 
-    const prevImage = () => {
+    const prevImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
         setCurrentImageIndex((prevIndex) => 
             prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
         );
     };
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleModalClick = (e: React.MouseEvent) => {
+        // Close modal only if clicking the backdrop, not the image
+        if (e.target === e.currentTarget) {
+            closeModal();
+        }
+    };
+
     const ImageContent = () => (
-        <div className="image-container">
+        <div className="image-container" onClick={openModal} style={{ cursor: 'pointer' }}>
             <img 
                 src={project.images[currentImageIndex]} 
                 className="zoom" 
@@ -85,18 +108,48 @@ function ProjectCard({ project }: { project: ProjectData }) {
     );
 
     return (
-        <div className="project">
-            <ImageContent />
-            
-            {project.link ? (
-                <a href={project.link} target="_blank" rel="noreferrer">
+        <>
+            <div className="project">
+                <ImageContent />
+                
+                {project.link ? (
+                    <a href={project.link} target="_blank" rel="noreferrer">
+                        <h2>{project.title}</h2>
+                    </a>
+                ) : (
                     <h2>{project.title}</h2>
-                </a>
-            ) : (
-                <h2>{project.title}</h2>
+                )}
+                <p>{project.description}</p>
+            </div>
+
+            {isModalOpen && (
+                <div className="modal-overlay" onClick={handleModalClick}>
+                    <div className="modal-content">
+                        <button className="modal-close" onClick={closeModal} aria-label="Close modal">
+                            ×
+                        </button>
+                        <img 
+                            src={project.images[currentImageIndex]} 
+                            alt={`${project.title} ${currentImageIndex + 1}`}
+                            className="modal-image"
+                        />
+                        {project.images.length > 1 && (
+                            <>
+                                <button className="modal-arrow-btn modal-prev-btn" onClick={prevImage} aria-label="Previous image">
+                                    ‹
+                                </button>
+                                <button className="modal-arrow-btn modal-next-btn" onClick={nextImage} aria-label="Next image">
+                                    ›
+                                </button>
+                                <div className="modal-image-indicator">
+                                    {currentImageIndex + 1} / {project.images.length}
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
             )}
-            <p>{project.description}</p>
-        </div>
+        </>
     );
 }
 
