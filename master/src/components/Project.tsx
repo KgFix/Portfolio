@@ -86,13 +86,7 @@ function ProjectCard({ project }: { project: ProjectData }) {
 
     return (
         <div className="project">
-            {project.link ? (
-                <a href={project.link} target="_blank" rel="noreferrer">
-                    <ImageContent />
-                </a>
-            ) : (
-                <ImageContent />
-            )}
+            <ImageContent />
             
             {project.link ? (
                 <a href={project.link} target="_blank" rel="noreferrer">
