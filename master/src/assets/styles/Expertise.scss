@@ -5,6 +5,8 @@ $color-blue: rgb(81,162,233);
 $color-blue-dark: #1e2d3d;
 
 .about {
+  position: relative;
+  z-index: 1;
   width: 1300px;
   margin-left: auto;
   margin-right: auto;
@@ -54,7 +56,7 @@ $color-blue-dark: #1e2d3d;
   font-size: 6rem;
   font-weight: 300;
   color: $color-text;
-  margin-bottom: 8rem;
+  margin-bottom: 1rem;
 }
 
 .profile {
@@ -68,13 +70,13 @@ $color-blue-dark: #1e2d3d;
   transition: all 1.1s;
 
   @media (max-width: 1301px) {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     left: 0;
     opacity: 1;
   }
 
   @media (max-width: 1000px) {
-    margin-bottom: 7rem;
+    margin-bottom: 4rem;
   }
 
   &__picture {
