@@ -32,8 +32,7 @@ function Expertise() {
                         fadeInSkill('.skills__item--git', 1400);
                         fadeInSkill('.skills__item--html', 1500);
                         fadeInSkill('.skills__item--css', 1600);
-                        fadeInSkill('.skills__item--sass', 1700);
-                        fadeInSkill('.skills__item--nextjs', 1800);
+                        fadeInSkill('.skills__item--nextjs', 1700);
                     }
                 });
             },
@@ -59,31 +58,28 @@ function Expertise() {
             <div className="skills">
                 <div className="skills__grid">
                     <div className="skills__item skills__item--python">
-                        <img src={require('../assets/images/py.png')} alt="Python" />
+                        <img src={require('../assets/images/TechIcons/py.png')} alt="Python" />
                     </div>
                     <div className="skills__item skills__item--js">
-                        <img src={require('../assets/images/js.png')} alt="JavaScript" />
+                        <img src={require('../assets/images/TechIcons/js.png')} alt="JavaScript" />
                     </div>
                     <div className="skills__item skills__item--react">
-                        <img src={require('../assets/images/react.png')} alt="React" />
+                        <img src={require('../assets/images/TechIcons/react.png')} alt="React" />
                     </div>
                     <div className="skills__item skills__item--node">
-                        <img src={require('../assets/images/node.png')} alt="Node.js" />
+                        <img src={require('../assets/images/TechIcons/node.png')} alt="Node.js" />
                     </div>
                     <div className="skills__item skills__item--git">
-                        <img src={require('../assets/images/git.png')} alt="Git" />
+                        <img src={require('../assets/images/TechIcons/git.png')} alt="Git" />
                     </div>
                     <div className="skills__item skills__item--html">
-                        <img src={require('../assets/images/html.png')} alt="HTML" />
+                        <img src={require('../assets/images/TechIcons/html.png')} alt="HTML" />
                     </div>
                     <div className="skills__item skills__item--css">
-                        <img src={require('../assets/images/css.png')} alt="CSS" />
-                    </div>
-                    <div className="skills__item skills__item--sass">
-                        <img src={require('../assets/images/sass.png')} alt="Sass" />
+                        <img src={require('../assets/images/TechIcons/css.png')} alt="CSS" />
                     </div>
                     <div className="skills__item skills__item--nextjs">
-                        <img src={require('../assets/images/nextjs.png')} alt="Next.js" />
+                        <img src={require('../assets/images/TechIcons/nextjs.png')} alt="Next.js" />
                     </div>
                 </div>
             </div>
