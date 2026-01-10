@@ -38,6 +38,12 @@ const BgCanvas: React.FC = () => {
       dots = { nb: 75, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 1100) {
       dots = { nb: 50, distance: 0, d_radius: 0, array: [] };
+    } else if (windowSize > 800) {
+      dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
+      ctx.globalAlpha = 0;
+    } else if (windowSize > 600) {
+      dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
+      ctx.globalAlpha = 0;
     } else {
       dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
       ctx.globalAlpha = 0;
@@ -63,12 +69,25 @@ const BgCanvas: React.FC = () => {
       create() {
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx!.fillStyle = this.colour;
+
+        // Account for scroll height since the bg is static and uses mouse position
+        const top = window.pageYOffset || 0;
+
+        // Make the dot colour fade out the further they are from the mouse
+        const dotDistance = Math.sqrt(
+          Math.pow(this.x - mousePosition.x, 2) + 
+          Math.pow(this.y - mousePosition.y + top, 2)
+        );
+        const distanceRatio = dotDistance / (windowSize / 2);
+
+        // This chops the bracket off the rgb colour and adds an opacity
+        ctx!.fillStyle = this.colour.slice(0, -1) + `,${1 - distanceRatio})`;
         ctx!.fill();
       }
 
       animate() {
-        for (let i = 0; i < dots.nb; i++) {
+        // Don't animate the first dot, it will follow mouse
+        for (let i = 1; i < dots.nb; i++) {
           const dot = dots.array[i];
 
           if (dot.y < 0 || dot.y > canvas!.height) {
@@ -84,30 +103,44 @@ const BgCanvas: React.FC = () => {
       }
     }
 
-    function draw() {
+    // Initialize dots once
+    for (let i = 0; i < dots.nb; i++) {
+      dots.array.push(new Dot());
+    }
+    dots.array[0].radius = 1.5;
+    dots.array[0].colour = '#51a2e9';
+
+    function createDots() {
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
       for (let i = 0; i < dots.nb; i++) {
-        dots.array.push(new Dot());
         const dot = dots.array[i];
         dot.create();
       }
-      dots.array[0].radius = 1.5;
-      dots.array[0].colour = '#51a2e9';
-      dots.array[dots.array.length - 1].animate();
+      dots.array[0].animate();
     }
 
-    const interval = setInterval(draw, 1000 / 30);
+    const draw = setInterval(createDots, 1000 / 30);
+
+    const handleScroll = () => {
+      mousePosition.x = window.innerWidth / 2;
+      mousePosition.y = window.innerHeight / 2;
+
+      const top = window.pageYOffset || 0;
+      mousePosition.y += top;
+    };
 
     const handleResize = () => {
-      clearInterval(interval);
+      clearInterval(draw);
       canvas!.width = document.body.scrollWidth;
       canvas!.height = window.innerHeight;
     };
 
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(draw);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
