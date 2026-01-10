@@ -1,19 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Dot {
+interface DotInstance {
   x: number;
   y: number;
   vx: number;
   vy: number;
   radius: number;
   colour: string;
+  create: () => void;
 }
 
 interface DotsConfig {
   nb: number;
   distance: number;
   d_radius: number;
-  array: Dot[];
+  array: DotInstance[];
 }
 
 const HeroCanvas: React.FC = () => {
@@ -73,15 +74,16 @@ const HeroCanvas: React.FC = () => {
       y: window.innerHeight / 2,
     };
 
-    class DotClass {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      colour: string;
+    class DotClass implements DotInstance {
+      x: number = 0;
+      y: number = 0;
+      vx: number = 0;
+      vy: number = 0;
+      radius: number = 0;
+      colour: string = '';
 
       constructor() {
+        if (!canvas) return;
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.vx = -0.5 + Math.random();
@@ -91,6 +93,7 @@ const HeroCanvas: React.FC = () => {
       }
 
       create() {
+        if (!ctx || !canvas) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 
