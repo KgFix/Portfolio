@@ -35,20 +35,20 @@ interface ProjectData {
 const projectsData: ProjectData[] = [
     {
         title: "Agentic Stock Intelligence Platform",
-        description: "Engineered a full-stack financial analysis platform using Plotly Dash and Flask for predicting future stock prices and providing weighted investment suggestions. The system is powered by an optimized, cache-first, agent-based backend integrating web search and a multi-LLM system, which reduced external API data latency by over 70%. This resilient multi-LLM architecture delivers real-time news summarization, sentiment analysis, and probabilistic stock price forecasts. Deployment is streamlined via an automated, production-ready CI/CD pipeline utilizing Docker, Ruff, and Mypy to ensure code quality and type safety.",
+        description: "Full-stack financial analysis platform for predicting future stock prices and providing weighted investment suggestions.",
         images: [TradingAI1, TradingAI2, TradingAI3, TradingAI4, TradingAI5],
         link: "https://trading-analysis-ai.onrender.com/",
         githubLink: "https://github.com/KgFix/TradingAI"
     },
     {
         title: "Marble Game",
-        description: "Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight. Engineered complex graphics, AI, and system features, including a predictive AI using negative delta algorithms, custom HLSL shaders for vertex extrusion rendering, and an efficient procedural generation system with queue-based memory management.",
+        description: "Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight.",
         images: [MarbleGame1, MarbleGame2, MarbleGame3, MarbleGame4, MarbleGame5, MarbleGame6, MarbleGame7, MarbleGame8],
         githubLink: "https://github.com/KgFix/MarbleGame"
     },
     {
         title: "Visual Novel Game Engine",
-        description: "Led a team of 9 in developing a C++ / SFML engine and implementing a image caching system, slashing asset loading time by 80%, while integrating JSON parsing to drive dynamic narrative, mini-games, and complex 2D boss fight logic.",
+        description: "Made from scratch using C++ and SFML for a 2D story-based quiz game, including various minigames, decision-based storylines and a final boss fight.",
         images: [VisualNovel1, VisualNovel2, VisualNovel3, VisualNovel4],
         githubLink: "https://github.com/KgFix/VisualNovelEngine"
     }
