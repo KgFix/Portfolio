@@ -38,19 +38,19 @@ const projectsData: ProjectData[] = [
         description: "Full-stack financial analysis platform for predicting future stock prices and providing weighted investment suggestions.",
         images: [TradingAI1, TradingAI2, TradingAI3, TradingAI4, TradingAI5],
         link: "https://trading-analysis-ai.onrender.com/",
-        githubLink: "https://github.com/KgFix/TradingAI"
+        githubLink: "https://github.com/KgFix/AgenticStockIntelligencePlatform"
     },
     {
         title: "Marble Game",
         description: "Unity/C# 3D physics platformer featuring a third-person marble roller, a procedurally generated side-scroller, and a custom-animated boss fight.",
         images: [MarbleGame1, MarbleGame2, MarbleGame3, MarbleGame4, MarbleGame5, MarbleGame6, MarbleGame7, MarbleGame8],
-        githubLink: "https://github.com/KgFix/MarbleGame"
+        githubLink: "https://github.com/KgFix/Marble"
     },
     {
         title: "Visual Novel Game Engine",
         description: "Made from scratch using C++ and SFML for a 2D story-based quiz game, including various minigames, decision-based storylines and a final boss fight.",
         images: [VisualNovel1, VisualNovel2, VisualNovel3, VisualNovel4],
-        githubLink: "https://github.com/KgFix/VisualNovelEngine"
+        githubLink: "https://github.com/leshenn/VisualNovelGame"
     }
 ];
 
@@ -74,10 +74,12 @@ function ProjectCard({ project, alignLeft }: { project: ProjectData; alignLeft: 
 
     const openModal = () => {
         setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
+        document.body.style.overflow = 'unset';
     };
 
     const handleModalClick = (e: React.MouseEvent) => {

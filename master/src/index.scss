@@ -1,3 +1,38 @@
+:root {
+  --accent-color: #ff4d5a;
+}
+
+// Shared section heading mixin
+@mixin section-heading-style {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #ff8a93 50%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8a93 50%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(20px);
+    opacity: 0.6;
+  }
+  
+  text-shadow: 0 0 40px rgba(255, 77, 90, 0.5),
+               0 0 80px rgba(255, 77, 90, 0.3);
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -25,7 +60,7 @@ a {
 }
 
 a:hover {
-  color: #5000ca;
+  color: var(--accent-color);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
@@ -91,6 +126,11 @@ p, a, h1, h2, h3, h4, h5, label, button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  h1 {
+    text-align: center;
+    @include section-heading-style;
+  }
 }
 
 .light-mode {

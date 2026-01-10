@@ -1,6 +1,7 @@
+@import '../../index.scss';
+
 $color-background: #1a1a1a;
 $color-text: #d8d8d8;
-$color-red: #ff4d5a;
 $color-blue: rgb(81,162,233);
 $color-blue-dark: #1e2d3d;
 
@@ -23,22 +24,7 @@ $color-blue-dark: #1e2d3d;
   }
 
   &__heading {
-    &:before {
-      position: absolute;
-      content: '';
-      border-bottom: 18px solid $color-red;
-      width: 16rem;
-      display: block;
-      margin: 0 auto;
-      position: relative;
-      left: 3.5rem;
-      top: 6.3rem;
-      z-index: -1;
-
-      @media (max-width: 770px) {
-        border-bottom: 14px solid $color-red;
-      }
-    }
+    @include section-heading-style;
   }
 
   &__content {
@@ -53,9 +39,7 @@ $color-blue-dark: #1e2d3d;
 }
 
 .section-heading {
-  font-size: 6rem;
-  font-weight: 300;
-  color: $color-text;
+  @include section-heading-style;
   margin-bottom: 1rem;
 }
 
@@ -176,7 +160,7 @@ $color-blue-dark: #1e2d3d;
     border-image-slice: 1;
     border-width: 3px;
     background-image: linear-gradient($color-background, $color-background),
-      radial-gradient(circle at top left, $color-blue, $color-red);
+      radial-gradient(circle at top left, $color-blue, var(--accent-color));
     border-radius: 10px;
     background-origin: border-box;
     background-clip: content-box, border-box;

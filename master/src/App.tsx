@@ -13,28 +13,31 @@ import './index.scss';
 import './assets/styles/BgCanvas.scss';
 
 function App() {
-    const [mode, setMode] = useState<string>('dark');
+    const [accentColor, setAccentColor] = useState<string>('#ff4d5a'); // Default red
 
-    const handleModeChange = () => {
-        if (mode === 'dark') {
-            setMode('light');
-        } else {
-            setMode('dark');
-        }
+    const handleAccentColorChange = () => {
+        const colors = ['#5a9bff', '#5aff7d', '#ff4d5a', '#ffde5a', '#ff9c5a']; // blue, green, red, yellow, orange
+        const currentIndex = colors.indexOf(accentColor);
+        const nextIndex = (currentIndex + 1) % colors.length;
+        setAccentColor(colors[nextIndex]);
     }
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
       }, []);
 
+    useEffect(() => {
+        document.documentElement.style.setProperty('--accent-color', accentColor);
+    }, [accentColor]);
+
     return (
-    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`main-container`}>
         <div className="main-bg">
             <div className="canvas">
                 <BgCanvas />
             </div>
         </div>
-        <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
+        <Navigation parentToChild={{accentColor}} colorChange={handleAccentColorChange}/>
         <FadeIn transitionDuration={700}>
             <Main/>
             <Expertise/>
