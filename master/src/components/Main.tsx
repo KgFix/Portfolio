@@ -3,12 +3,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import '../assets/styles/Main.scss';
 import mainImage from '../assets/images/main.png';
+import HeroCanvas from './HeroCanvas';
 
 function Main() {
 
   return (
     <div className="container">
       <div className="about-section">
+        <HeroCanvas />
         <div className="image-wrapper">
           <img src={mainImage} alt="Avatar" />
         </div>
