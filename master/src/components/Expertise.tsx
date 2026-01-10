@@ -52,7 +52,7 @@ function Expertise() {
         <div className="about__content" ref={aboutContentRef}>
             <div className="profile">
                 <p className="profile__blurb">
-                    Final-year Computer Science student focused on creating high-quality, meaningful solutions. Strong engineering foundation in C++, Java, Python, SQL, Delphi and C# with a focus on learning architecting for scalability and performance optimization. With growing experience across the full Software Development Lifecycle (SDLC), including CI/CD and cloud technologies like AWS/Docker, I am eager to contribute to translating complex requirements into well-engineered code. I am seeking an immersive opportunity to expand my technical horizons and apply this drive for innovation in a collaborative environment.
+                    Passionate about the art of creation in its various forms, with my chosen medium being code.  A strong believer in the philosophy of life-long learning, I continuosly build on my skills as well as seeking out new ones. My grounding and expertise in C++, Java and Python extend to various other languages and frameworks with the purpose of creating efficient, elegant and effective solutions.
                 </p>
             </div>
             
