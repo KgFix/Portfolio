@@ -52,7 +52,7 @@ function Expertise() {
         <div className="about__content" ref={aboutContentRef}>
             <div className="profile">
                 <p className="profile__blurb">
-                    Passionate about the art of creation in its various forms, with my chosen medium being code.  A strong believer in the philosophy of life-long learning, I continuosly build on my skills as well as seeking out new ones. My grounding and expertise in C++, Java and Python extend to various other languages and frameworks with the purpose of creating efficient, elegant and effective solutions.
+                    Passionate about the art of creation in its various forms, with my chosen medium being code. Driven by a philosophy of lifelong learning, I am consistently refining my current skill set while seeking out new horizons. My experience in C++, Java, and Python extends across various languages and frameworks, all with a singular purpose: creating efficient, elegant, and effective solutions.
                 </p>
             </div>
             
