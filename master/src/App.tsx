@@ -28,6 +28,13 @@ function App() {
 
     useEffect(() => {
         document.documentElement.style.setProperty('--accent-color', accentColor);
+        
+        // Convert hex to RGB for the glow effects
+        const hex = accentColor.replace('#', '');
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        document.documentElement.style.setProperty('--accent-color-rgb', `${r}, ${g}, ${b}`);
     }, [accentColor]);
 
     return (

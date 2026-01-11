@@ -51,8 +51,9 @@
             flex-shrink: 0;
             transition: all 0.2s;
             cursor: pointer;
-            box-shadow: 0 0 30px var(--accent-color),
-                        0 0 60px var(--accent-color);
+            box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.5),
+                        0 0 40px rgba(var(--accent-color-rgb), 0.3),
+                        0 0 60px rgba(var(--accent-color-rgb), 0.15);
 
             @media (max-width: 1400px) {
                 height: 40rem;
@@ -109,6 +110,13 @@
         z-index: 9999999;
         width: 26rem;
         flex-shrink: 0;
+        background-color: rgba(26, 26, 26, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.5),
+                    0 0 40px rgba(var(--accent-color-rgb), 0.3),
+                    0 0 60px rgba(var(--accent-color-rgb), 0.15);
 
         @media (max-width: 1400px) {
             width: 25rem;

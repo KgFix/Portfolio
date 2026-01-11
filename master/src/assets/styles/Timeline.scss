@@ -4,8 +4,8 @@
 }
 
 .vertical-timeline-element-content {
-    box-shadow: 0 0 30px var(--accent-color),
-                0 0 60px var(--accent-color) !important;
+    box-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.3),
+                0 0 16px rgba(var(--accent-color-rgb), 0.15) !important;
 }
 
 .vertical-timeline p {

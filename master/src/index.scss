@@ -1,19 +1,39 @@
 :root {
   --accent-color: #ff4d5a;
+  --accent-color-rgb: 255, 77, 90;
+}
+
+@keyframes metallic-shine {
+  0%, 90% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+                 0 0 20px rgba(255, 255, 255, 0.2),
+                 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  95% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(255, 255, 255, 0.6),
+                 0 0 60px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+                 0 0 20px rgba(255, 255, 255, 0.2),
+                 0 0 30px rgba(255, 255, 255, 0.1);
+  }
 }
 
 // Shared section heading mixin
 @mixin section-heading-style {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
-  font-size: 6rem;
+  font-size: 3rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--accent-color) 0%, #ff8a93 50%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 25%, #ffffff 50%, #e8e8e8 75%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  animation: metallic-shine 4s ease-in-out infinite;
   
   &::after {
     content: attr(data-text);
@@ -21,16 +41,13 @@
     left: 0;
     top: 0;
     z-index: -1;
-    background: linear-gradient(135deg, var(--accent-color) 0%, #ff8a93 50%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 25%, #ffffff 50%, #e8e8e8 75%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: blur(20px);
     opacity: 0.6;
   }
-  
-  text-shadow: 0 0 40px rgba(255, 77, 90, 0.5),
-               0 0 80px rgba(255, 77, 90, 0.3);
 }
 
 body {
