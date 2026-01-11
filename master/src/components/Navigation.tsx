@@ -20,8 +20,6 @@ const navItems = [['About', 'about'], ['History', 'history'], ['Projects', 'proj
 
 function Navigation({parentToChild, colorChange}: any) {
 
-  const {accentColor} = parentToChild;
-
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
