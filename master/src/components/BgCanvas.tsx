@@ -33,20 +33,17 @@ const BgCanvas: React.FC = () => {
     let dots: { nb: number; distance: number; d_radius: number; array: any[] };
 
     if (windowSize > 1600) {
-      dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
+      dots = { nb: 300, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 1300) {
-      dots = { nb: 75, distance: 0, d_radius: 0, array: [] };
+      dots = { nb: 250, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 1100) {
-      dots = { nb: 50, distance: 0, d_radius: 0, array: [] };
+      dots = { nb: 200, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 800) {
-      dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
-      ctx.globalAlpha = 0;
+      dots = { nb: 150, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 600) {
-      dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
-      ctx.globalAlpha = 0;
+      dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
     } else {
-      dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
-      ctx.globalAlpha = 0;
+      dots = { nb: 75, distance: 0, d_radius: 0, array: [] };
     }
 
     class Dot {

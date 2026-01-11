@@ -13,7 +13,7 @@ import './index.scss';
 import './assets/styles/BgCanvas.scss';
 
 function App() {
-    const [accentColor, setAccentColor] = useState<string>('#ff4d5a'); // Default red
+    const [accentColor, setAccentColor] = useState<string>('#5a9bff'); // Default blue
 
     const handleAccentColorChange = () => {
         const colors = ['#5a9bff', '#5aff7d', '#ff4d5a', '#ffde5a', '#ff9c5a']; // blue, green, red, yellow, orange

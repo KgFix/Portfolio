@@ -115,6 +115,47 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 }
 
+.palette-icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palette-glow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 0;
+  box-shadow: 
+    0 0 25px currentColor,
+    0 0 45px currentColor,
+    0 0 65px currentColor;
+  opacity: 0.4;
+  filter: blur(5px);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.palette-icon {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
 .navigation-bar-responsive {
   span, p {
     color: #0d1116;

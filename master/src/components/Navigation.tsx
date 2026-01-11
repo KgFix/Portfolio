@@ -84,12 +84,15 @@ function Navigation({parentToChild, colorChange}: any) {
           >
             <MenuIcon />
           </IconButton>
-          <img 
-            src={PaletteIcon} 
-            alt="Color Palette" 
-            onClick={() => colorChange()} 
-            style={{ cursor: 'pointer', width: '28px', height: '28px' }}
-          />
+          <div className="palette-icon-container">
+            <div className="palette-glow" style={{ backgroundColor: parentToChild.accentColor }}></div>
+            <img 
+              src={PaletteIcon} 
+              alt="Color Palette" 
+              onClick={() => colorChange()} 
+              className="palette-icon"
+            />
+          </div>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
