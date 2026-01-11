@@ -1,43 +1,66 @@
 .vertical-timeline span {
-    color: white;
+    color: rgb(var(--accent-color-rgb));
     font-family: 'Courier Prime', monospace;
+    box-shadow: 0 0 10px rgba(var(--accent-color-rgb), 0.8),
+                0 0 20px rgba(var(--accent-color-rgb), 0.5),
+                0 0 30px rgba(var(--accent-color-rgb), 0.3);
 }
 
 .vertical-timeline-element-content {
+    background: transparent !important;
     box-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.3),
                 0 0 16px rgba(var(--accent-color-rgb), 0.15) !important;
 }
 
 .vertical-timeline p {
-    color: rgb(39, 40, 34);
+    color: white;
 }
 
 .vertical-timeline-element p {
-    color: rgb(39, 40, 34);
+    color: white;
 }
 
 .vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
+    color: white;
 }
 
 .vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
+    color: white;
 }
 
 .vertical-timeline-element span {
-    color: rgb(39, 40, 34);
+    color: white;
 }
 
 .vertical-timeline-element .vertical-timeline-element-date {
     color: white;
+    box-shadow: none !important;
 }
 
 .svg-inline--fa {
     color: white;
 }
 
+// Timeline line color
+.vertical-timeline::before {
+    background: rgb(var(--accent-color-rgb)) !important;
+    box-shadow: 0 0 15px rgba(var(--accent-color-rgb), 0.9),
+                0 0 30px rgba(var(--accent-color-rgb), 0.6),
+                0 0 45px rgba(var(--accent-color-rgb), 0.4);
+}
+
+// Icon background with glow
+.vertical-timeline-element-icon {
+    background: black !important;
+    box-shadow: 0 0 0 4px rgb(var(--accent-color-rgb)),
+                0 0 15px rgba(var(--accent-color-rgb), 1),
+                0 0 30px rgba(var(--accent-color-rgb), 0.8),
+                0 0 45px rgba(var(--accent-color-rgb), 0.6),
+                0 0 60px rgba(var(--accent-color-rgb), 0.4) !important;
+}
+
 @media screen and (max-width: 1170px) {
     .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+        color: white;
     }
 }

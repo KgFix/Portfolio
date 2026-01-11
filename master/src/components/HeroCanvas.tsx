@@ -200,12 +200,16 @@ const HeroCanvas: React.FC = () => {
 
     // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
-      mousePositionRef.current.x = e.pageX;
-      mousePositionRef.current.y = e.pageY;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      mousePositionRef.current.x = x;
+      mousePositionRef.current.y = y;
 
       if (dotsRef.current && dotsRef.current.array[0]) {
-        dotsRef.current.array[0].x = e.pageX;
-        dotsRef.current.array[0].y = e.pageY;
+        dotsRef.current.array[0].x = x;
+        dotsRef.current.array[0].y = y;
       }
     };
 

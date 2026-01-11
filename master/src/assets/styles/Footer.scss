@@ -32,7 +32,7 @@ footer {
             }
 
             &:hover {
-                color: #5000ca;
+                color: rgb(var(--accent-color-rgb));
             }
         }
     }
@@ -48,7 +48,7 @@ footer {
             }
 
             &:hover {
-                color: #5000ca;
+                color: rgb(var(--accent-color-rgb));
             }
         }
     }
