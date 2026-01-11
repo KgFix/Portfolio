@@ -24,6 +24,18 @@ $color-blue-dark: #1e2d3d;
   @media (max-width: 1200px) {
     width: auto;
     margin-top: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   &::after {

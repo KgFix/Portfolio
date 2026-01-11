@@ -6,6 +6,10 @@ footer {
     color: white;
     padding: 20px 0;
 
+    @media (max-width: 768px) {
+        padding: 15px 10px;
+    }
+
     .footer-container {
         display: flex;
         justify-content: space-around;
@@ -13,6 +17,11 @@ footer {
         flex-wrap: wrap;
         width: 100%;
         gap: 20px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 15px;
+        }
     }
 
     .contact-details {
@@ -22,6 +31,10 @@ footer {
         justify-content: center;
         margin: 0;
 
+        @media (max-width: 768px) {
+            align-items: center;
+        }
+
         a, .phone-number {
             display: flex;
             align-items: center;
@@ -29,6 +42,14 @@ footer {
             color: white;
             margin: 0;
             font-size: 1.2rem;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 0.9rem;
+            }
 
             &:not(:last-child) {
                 margin-bottom: 3px;
@@ -38,6 +59,11 @@ footer {
                 margin-right: 8px;
                 width: 1.5em !important;
                 height: 1.5em !important;
+
+                @media (max-width: 480px) {
+                    width: 1.2em !important;
+                    height: 1.2em !important;
+                }
             }
 
             &:hover {
