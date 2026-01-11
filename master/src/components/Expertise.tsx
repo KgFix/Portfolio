@@ -15,10 +15,8 @@ function Expertise() {
         const context = (require as any).context('../assets/images/TechIcons', false, /\.png$/);
         return context.keys().map((key: string) => {
             const fileName = key.replace('./', '').replace('.png', '');
-            // Sanitize filename for use as CSS class (replace special characters)
-            const sanitizedName = fileName.replace('#', 'sharp').replace(/\+/g, 'plus');
             return {
-                name: sanitizedName,
+                name: fileName,
                 src: context(key),
                 alt: fileName.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
             };
