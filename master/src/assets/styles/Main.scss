@@ -10,6 +10,27 @@
     min-height: 700px;
     background-color: #1a1a1a;
     overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(var(--accent-color-rgb), 0.5) 15%, 
+            rgba(var(--accent-color-rgb), 1) 50%, 
+            rgba(var(--accent-color-rgb), 0.5) 85%, 
+            transparent 100%
+        );
+        box-shadow: 
+            0 0 30px rgba(var(--accent-color-rgb), 1),
+            0 0 60px rgba(var(--accent-color-rgb), 0.8),
+            0 0 90px rgba(var(--accent-color-rgb), 0.5),
+            0 0 120px rgba(var(--accent-color-rgb), 0.3);
+    }
 }
 
 .about-section .content {
