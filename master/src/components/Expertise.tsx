@@ -1,8 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import '../assets/styles/Expertise.scss';
+
+interface TechIcon {
+    name: string;
+    src: string;
+    alt: string;
+}
 
 function Expertise() {
     const aboutContentRef = useRef<HTMLDivElement>(null);
+
+    // Dynamically import all PNG files from TechIcons folder
+    const techIcons = useMemo<TechIcon[]>(() => {
+        const context = (require as any).context('../assets/images/TechIcons', false, /\.png$/);
+        return context.keys().map((key: string) => {
+            const fileName = key.replace('./', '').replace('.png', '');
+            // Sanitize filename for use as CSS class (replace special characters)
+            const sanitizedName = fileName.replace('#', 'sharp').replace(/\+/g, 'plus');
+            return {
+                name: sanitizedName,
+                src: context(key),
+                alt: fileName.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
+            };
+        });
+    }, []);
 
     useEffect(() => {
         const aboutContent = aboutContentRef.current;
@@ -39,57 +60,21 @@ function Expertise() {
             
             <div className="skills">
                 <div className="skills__belt-container">
-                    <div className="skills__belt">
-                        <div className="skills__item skills__item--python">
-                            <img src={require('../assets/images/TechIcons/py.png')} alt="Python" />
+                    <div className="skills__belt-wrapper">
+                        <div className="skills__belt">
+                            {techIcons.map((icon: TechIcon) => (
+                                <div key={icon.name} className={`skills__item skills__item--${icon.name}`}>
+                                    <img src={icon.src} alt={icon.alt} />
+                                </div>
+                            ))}
                         </div>
-                        <div className="skills__item skills__item--js">
-                            <img src={require('../assets/images/TechIcons/js.png')} alt="JavaScript" />
-                        </div>
-                        <div className="skills__item skills__item--react">
-                            <img src={require('../assets/images/TechIcons/react.png')} alt="React" />
-                        </div>
-                        <div className="skills__item skills__item--node">
-                            <img src={require('../assets/images/TechIcons/node.png')} alt="Node.js" />
-                        </div>
-                        <div className="skills__item skills__item--git">
-                            <img src={require('../assets/images/TechIcons/git.png')} alt="Git" />
-                        </div>
-                        <div className="skills__item skills__item--html">
-                            <img src={require('../assets/images/TechIcons/html.png')} alt="HTML" />
-                        </div>
-                        <div className="skills__item skills__item--css">
-                            <img src={require('../assets/images/TechIcons/css.png')} alt="CSS" />
-                        </div>
-                        <div className="skills__item skills__item--nextjs">
-                            <img src={require('../assets/images/TechIcons/nextjs.png')} alt="Next.js" />
-                        </div>
-                    </div>
-                    {/* Duplicate for seamless loop */}
-                    <div className="skills__belt" aria-hidden="true">
-                        <div className="skills__item skills__item--python">
-                            <img src={require('../assets/images/TechIcons/py.png')} alt="Python" />
-                        </div>
-                        <div className="skills__item skills__item--js">
-                            <img src={require('../assets/images/TechIcons/js.png')} alt="JavaScript" />
-                        </div>
-                        <div className="skills__item skills__item--react">
-                            <img src={require('../assets/images/TechIcons/react.png')} alt="React" />
-                        </div>
-                        <div className="skills__item skills__item--node">
-                            <img src={require('../assets/images/TechIcons/node.png')} alt="Node.js" />
-                        </div>
-                        <div className="skills__item skills__item--git">
-                            <img src={require('../assets/images/TechIcons/git.png')} alt="Git" />
-                        </div>
-                        <div className="skills__item skills__item--html">
-                            <img src={require('../assets/images/TechIcons/html.png')} alt="HTML" />
-                        </div>
-                        <div className="skills__item skills__item--css">
-                            <img src={require('../assets/images/TechIcons/css.png')} alt="CSS" />
-                        </div>
-                        <div className="skills__item skills__item--nextjs">
-                            <img src={require('../assets/images/TechIcons/nextjs.png')} alt="Next.js" />
+                        {/* Duplicate for seamless loop */}
+                        <div className="skills__belt" aria-hidden="true">
+                            {techIcons.map((icon: TechIcon) => (
+                                <div key={`${icon.name}-duplicate`} className={`skills__item skills__item--${icon.name}`}>
+                                    <img src={icon.src} alt={icon.alt} />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
