@@ -13,7 +13,7 @@
     box-sizing: border-box;
     margin-bottom: 10rem;
     position: relative;
-    padding-bottom: 8rem;
+    padding-bottom: 2rem;
 
     &::after {
         content: '';
@@ -43,7 +43,8 @@
     }
 
     &__heading {
-        margin-bottom: 15rem;
+        margin-top: -1rem;
+        margin-bottom: 8rem;
         @include section-heading-style;
     }
 }
@@ -52,7 +53,7 @@
 .project {
     position: relative;
     display: flex;
-    margin-bottom: 14rem;
+    margin-bottom: 10rem;
     justify-content: flex-start;
     max-width: 100%;
     width: 100%;
