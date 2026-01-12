@@ -15,7 +15,7 @@ import MarbleGame3 from '../assets/images/MarbleGame/dasasd.png';
 import MarbleGame4 from '../assets/images/MarbleGame/dasd.png';
 import MarbleGame5 from '../assets/images/MarbleGame/dasdasd.png';
 import MarbleGame6 from '../assets/images/MarbleGame/dsa.png';
-import MarbleGame7 from '../assets/images/MarbleGame/fas.png';
+import MarbleGame7 from '../assets/images/MarbleGame/dsaz.png';
 import MarbleGame8 from '../assets/images/MarbleGame/MarbleGame.gif';
 
 // Import images for VisualNovelEngine project
