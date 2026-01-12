@@ -171,13 +171,7 @@ $color-blue-dark: #1e2d3d;
   &__belt-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
-    animation: scrollHorizontal 30s linear infinite;
     will-change: transform;
-    
-    @media (max-width: 600px) {
-      gap: 1.5rem;
-    }
   }
 
   &__belt {
@@ -185,6 +179,7 @@ $color-blue-dark: #1e2d3d;
     flex-direction: row;
     flex-shrink: 0;
     gap: 2rem;
+    animation: scrollHorizontal 30s linear infinite;
     
     @media (max-width: 600px) {
       gap: 1.5rem;
@@ -345,9 +340,9 @@ $color-blue-dark: #1e2d3d;
 
 @keyframes scrollHorizontal {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(0%);
+    transform: translateX(-100%);
   }
 }
