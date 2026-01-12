@@ -25,48 +25,9 @@ function App() {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         
-        // Only prevent zoom on desktop, allow normal behavior on mobile
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        
-        if (!isMobile) {
-            // Prevent zoom and maintain fixed sizes (desktop only)
-            const preventZoom = (e: WheelEvent | KeyboardEvent) => {
-                if (e instanceof WheelEvent && e.ctrlKey) {
-                    e.preventDefault();
-                } else if (e instanceof KeyboardEvent) {
-                    if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
-                        e.preventDefault();
-                    }
-                }
-            };
-
-            // Detect and counteract zoom (desktop only)
-            const maintainZoom = () => {
-                const zoom = Math.round(window.devicePixelRatio * 100);
-                if (zoom !== 100) {
-                    const scale = 100 / zoom;
-                    document.body.style.transform = `scale(${scale})`;
-                    document.body.style.transformOrigin = 'top left';
-                    document.body.style.width = `${zoom}%`;
-                    document.body.style.height = `${zoom}%`;
-                } else {
-                    document.body.style.transform = 'none';
-                    document.body.style.width = '100%';
-                    document.body.style.height = '100%';
-                }
-            };
-
-            window.addEventListener('wheel', preventZoom, { passive: false });
-            window.addEventListener('keydown', preventZoom);
-            window.addEventListener('resize', maintainZoom);
-            maintainZoom();
-
-            return () => {
-                window.removeEventListener('wheel', preventZoom);
-                window.removeEventListener('keydown', preventZoom);
-                window.removeEventListener('resize', maintainZoom);
-            };
-        }
+        // Ensure body doesn't overflow
+        document.body.style.overflowX = 'hidden';
+        document.documentElement.style.overflowX = 'hidden';
       }, []);
 
     useEffect(() => {
