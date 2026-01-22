@@ -13,12 +13,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import PaletteIcon from '../assets/images/Palette.png';
 
 const drawerWidth = 240;
 const navItems = [['About', 'about'], ['History', 'history'], ['Projects', 'projects']];
 
-function Navigation({parentToChild, colorChange}: any) {
+function Navigation() {
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -84,15 +83,6 @@ function Navigation({parentToChild, colorChange}: any) {
           >
             <MenuIcon />
           </IconButton>
-          <div className="palette-icon-container">
-            <div className="palette-glow" style={{ backgroundColor: parentToChild.accentColor }}></div>
-            <img 
-              src={PaletteIcon} 
-              alt="Color Palette" 
-              onClick={() => colorChange()} 
-              className="palette-icon"
-            />
-          </div>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>

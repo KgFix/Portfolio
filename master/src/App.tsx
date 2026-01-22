@@ -13,14 +13,7 @@ import './index.scss';
 import './assets/styles/BgCanvas.scss';
 
 function App() {
-    const [accentColor, setAccentColor] = useState<string>('#5a9bff'); // Default blue
-
-    const handleAccentColorChange = () => {
-        const colors = ['#5a9bff', '#5aff7d', '#ff4d5a', '#ffde5a', '#ff9c5a']; // blue, green, red, yellow, orange
-        const currentIndex = colors.indexOf(accentColor);
-        const nextIndex = (currentIndex + 1) % colors.length;
-        setAccentColor(colors[nextIndex]);
-    }
+    const accentColor = '#5a9bff'; // Fixed blue accent color
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -48,7 +41,7 @@ function App() {
                 <BgCanvas />
             </div>
         </div>
-        <Navigation parentToChild={{accentColor}} colorChange={handleAccentColorChange}/>
+        <Navigation/>
         <FadeIn transitionDuration={700}>
             <Main/>
             <Expertise/>
