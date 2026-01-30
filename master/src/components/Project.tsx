@@ -8,6 +8,12 @@ import TradingAI3 from '../assets/images/TradingAI/3.png';
 import TradingAI4 from '../assets/images/TradingAI/4.png';
 import TradingAI5 from '../assets/images/TradingAI/5.png';
 
+// Import images for AnalyticsDashboard project
+import AnalyticsDashboard1 from '../assets/images/AnalyticsDashboard/1.png';
+import AnalyticsDashboard2 from '../assets/images/AnalyticsDashboard/2.png';
+import AnalyticsDashboard3 from '../assets/images/AnalyticsDashboard/3.png';
+import AnalyticsDashboard4 from '../assets/images/AnalyticsDashboard/4.png';
+
 // Import images for MarbleGame project
 import MarbleGame1 from '../assets/images/MarbleGame/as.png';
 import MarbleGame2 from '../assets/images/MarbleGame/asd.png';
@@ -39,6 +45,13 @@ const projectsData: ProjectData[] = [
         images: [TradingAI1, TradingAI2, TradingAI3, TradingAI4, TradingAI5],
         link: "https://trading-analysis-ai.onrender.com/",
         githubLink: "https://github.com/KgFix/AgenticStockIntelligencePlatform"
+    },
+    {
+        title: "Automation & Analytics Dashboard",
+        description: "Real-time pipeline that transforms Discord activity into a visual analytics dashboard. It uses automated image processing to capture user submissions and instantly turns raw data into intuitive, actionable insights for the community.",
+        images: [AnalyticsDashboard1, AnalyticsDashboard2, AnalyticsDashboard3, AnalyticsDashboard4],
+        link: "https://haikyuucontestdashboard.netlify.app/",
+        githubLink: "https://github.com/KgFix/HaikyuuContestDashboard"
     },
     {
         title: "Marble Game",
@@ -96,10 +109,8 @@ function ProjectCard({ project, alignLeft }: { project: ProjectData; alignLeft: 
                         src={project.images[currentImageIndex]} 
                         alt={`${project.title} screenshot`}
                         onClick={(e) => {
-                            if (project.images.length > 1) {
-                                e.preventDefault();
-                                openModal();
-                            }
+                            e.preventDefault();
+                            openModal();
                         }}
                     />
                 </div>
