@@ -20,6 +20,7 @@ interface DotsConfig {
 const HeroCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePositionRef = useRef({ x: 0, y: 0 });
+  const isMouseInRef = useRef(false);
   const dotsRef = useRef<DotsConfig | null>(null);
   const animationFrameRef = useRef<number>();
 
@@ -61,9 +62,9 @@ const HeroCanvas: React.FC = () => {
     } else if (windowSize > 800) {
       dotsConfig = { nb: 300, distance: 0, d_radius: 0, array: [] };
     } else if (windowSize > 600) {
-      dotsConfig = { nb: 200, distance: 0, d_radius: 0, array: [] };
+      dotsConfig = { nb: 200, distance: 75, d_radius: 200, array: [] };
     } else {
-      dotsConfig = { nb: 100, distance: 0, d_radius: 0, array: [] };
+      dotsConfig = { nb: 100, distance: 75, d_radius: 200, array: [] };
     }
 
     dotsRef.current = dotsConfig;
@@ -72,6 +73,14 @@ const HeroCanvas: React.FC = () => {
     mousePositionRef.current = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2,
+    };
+
+    // Auto-movement state for mobile
+    const autoMouse = {
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: 2,
+      vy: 2
     };
 
     class DotClass implements DotInstance {
@@ -110,6 +119,18 @@ const HeroCanvas: React.FC = () => {
 
     const createDots = () => {
       if (!dotsRef.current) return;
+
+      // Randomize line animations on mobile OR if mouse is not in view
+      if (window.innerWidth <= 800 || !isMouseInRef.current) {
+        autoMouse.x += autoMouse.vx;
+        autoMouse.y += autoMouse.vy;
+
+        if (autoMouse.x < 0 || autoMouse.x > canvas.width) autoMouse.vx = -autoMouse.vx;
+        if (autoMouse.y < 0 || autoMouse.y > canvas.height) autoMouse.vy = -autoMouse.vy;
+
+        mousePositionRef.current.x = autoMouse.x;
+        mousePositionRef.current.y = autoMouse.y;
+      }
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -204,16 +225,37 @@ const HeroCanvas: React.FC = () => {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      mousePositionRef.current.x = x;
-      mousePositionRef.current.y = y;
+      // Check if mouse is within hero section bounds
+      if (x >= 0 && x <= canvas.width && y >= 0 && y <= canvas.height) {
+        isMouseInRef.current = true;
+        mousePositionRef.current.x = x;
+        mousePositionRef.current.y = y;
+        
+        // Sync auto mouse so it picks up from here when leaving
+        autoMouse.x = x;
+        autoMouse.y = y;
+      } else {
+        isMouseInRef.current = false;
+      }
 
       if (dotsRef.current && dotsRef.current.array[0]) {
         dotsRef.current.array[0].x = x;
         dotsRef.current.array[0].y = y;
       }
     };
+    
+    const handleMouseLeave = () => {
+      isMouseInRef.current = false;
+    };
 
     window.addEventListener('mousemove', handleMouseMove);
+    // Add specific leave listener to window to catch exiting viewport
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget) {
+         handleMouseLeave();
+      }
+    });
 
     // Resize handler
     const handleResize = () => {
@@ -235,6 +277,7 @@ const HeroCanvas: React.FC = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
       window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', handleResize);
     };
   }, []);

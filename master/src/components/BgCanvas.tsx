@@ -18,7 +18,7 @@ const BgCanvas: React.FC = () => {
     ];
     const color = 'rgb(81, 162, 233)';
 
-    canvas.width = document.body.scrollWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.display = 'block';
     ctx.lineWidth = 0.3;
@@ -75,7 +75,11 @@ const BgCanvas: React.FC = () => {
           Math.pow(this.x - mousePosition.x, 2) + 
           Math.pow(this.y - mousePosition.y + top, 2)
         );
-        const distanceRatio = dotDistance / (windowSize / 2);
+
+        // Adjust visibility range for mobile/smaller screens to ensure dots are seen
+        const currentWindowSize = canvas!.width;
+        const visibilityRange = currentWindowSize < 800 ? currentWindowSize * 2 : currentWindowSize / 2;
+        const distanceRatio = dotDistance / visibilityRange;
 
         // This chops the bracket off the rgb colour and adds an opacity
         ctx!.fillStyle = this.colour.slice(0, -1) + `,${1 - distanceRatio})`;
@@ -125,8 +129,7 @@ const BgCanvas: React.FC = () => {
     };
 
     const handleResize = () => {
-      clearInterval(draw);
-      canvas!.width = document.body.scrollWidth;
+      canvas!.width = window.innerWidth;
       canvas!.height = window.innerHeight;
     };
 
